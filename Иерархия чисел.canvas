@@ -1,0 +1,21 @@
+{
+	"nodes":[
+		{"id":"5ab3893eb902a3f5","x":26,"y":-191,"width":156,"height":60,"type":"text","text":"Комплексное"},
+		{"id":"bcf0c6951bdb1208","x":-220,"y":-191,"width":111,"height":60,"type":"text","text":"Реальное"},
+		{"id":"94d57c5866ffd0d3","x":-210,"y":-11,"width":92,"height":60,"type":"text","text":"Целое"},
+		{"id":"f7f9d7ed7bd1edcd","x":-13,"y":-11,"width":117,"height":60,"type":"text","text":"С точкой"},
+		{"id":"cf5aed3bdc221c2c","x":-490,"y":-11,"width":161,"height":60,"type":"text","text":"Рациональное"},
+		{"id":"78d2f3b5e8f716ff","x":-86,"y":-320,"width":94,"height":60,"type":"text","text":"Число"},
+		{"id":"bcec17c6ab34131e","x":-135,"y":167,"width":122,"height":60,"type":"text","text":"Без знака"},
+		{"id":"a3866433c44a9969","x":-313,"y":167,"width":119,"height":60,"type":"text","text":"Со знаком"}
+	],
+	"edges":[
+		{"id":"4c4f292f6b124b3e","fromNode":"bcf0c6951bdb1208","fromSide":"bottom","toNode":"cf5aed3bdc221c2c","toSide":"top"},
+		{"id":"1d612dd896bbcaa6","fromNode":"bcf0c6951bdb1208","fromSide":"bottom","toNode":"94d57c5866ffd0d3","toSide":"top"},
+		{"id":"61f47cbfd280582c","fromNode":"bcf0c6951bdb1208","fromSide":"bottom","toNode":"f7f9d7ed7bd1edcd","toSide":"top"},
+		{"id":"7b869719bcc5790c","fromNode":"78d2f3b5e8f716ff","fromSide":"bottom","toNode":"bcf0c6951bdb1208","toSide":"top"},
+		{"id":"e2cded3dbef61bcb","fromNode":"78d2f3b5e8f716ff","fromSide":"bottom","toNode":"5ab3893eb902a3f5","toSide":"top"},
+		{"id":"3c45a3bc1b4ff8f7","fromNode":"94d57c5866ffd0d3","fromSide":"bottom","toNode":"bcec17c6ab34131e","toSide":"top"},
+		{"id":"24e8505a0d981e55","fromNode":"94d57c5866ffd0d3","fromSide":"bottom","toNode":"a3866433c44a9969","toSide":"top"}
+	]
+}
