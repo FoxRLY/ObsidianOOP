@@ -13,4 +13,112 @@
 ---
 
 ## Пример кода
-#todo 
+### Перегрузка функций
+Как было описано выше - это просто использование одинаковых имен функций, но в этой простоте кроется кое-что страшное:
+
+- Чтобы функция считалась перегрузкой, необходимо изменить либо количество аргументов, либо их типы. Изменения возвращаемого типа или имен аргументов не является перегрузкой и выдаст вам ошибку:
+```cpp
+void my_func(int a);       // Оригинальная функция 
+void my_func(float a);     // Перегрузка
+int my_func(int a);        // Ошибка
+void my_func(int b);       // Ошибка
+```
+
+- Если тип передаваемого аргумента точно не подходит к принимаемому, то имеет место быть скрытая конверсия, при том не всегда желанная:
+```cpp
+#include <iostream>
+#include <string>
+
+// В данном случае такой проблемы нет, ибо пример просто не скомпилируется
+// Но это не значит, что компилятор всегда сможет вас спасти.
+static float val = 0;
+
+void add_num(float num)
+{
+	val += num;
+}
+
+void add_num(int num)
+{
+	val += static_cast<float>(num);
+}
+
+int main()
+{
+	add_num(10.345);
+	std::cout << val;
+}
+```
+
+Пример перегрузки функций:
+```cpp
+#include <iostream>
+#include <string>
+
+// Пример перегрузки функций
+void print_var(int value){
+	printf("%i\n", value);
+}
+
+void print_var(float value){
+	printf("%f\n", value);
+}
+
+void print_var(std::string value)
+{
+	printf("%s\n", value.c_str());
+}
+
+int main()
+{
+	auto a = 10;
+	auto b = 10.32f;
+	std::string c = "hello there";
+	print_var(a);
+	print_var(b);
+	print_var(c);
+}
+```
+
+### Приведение типов
+Тут дополнительных объяснений не нужно, никаких подвохов нет.
+Просто перегружаем оператор приведения типа к строке и можем использовать эти классы в разных местах.
+```cpp
+#include <iostream>
+#include <string>
+
+class MyInt
+{
+private:
+	int val;
+public:
+	MyInt(int new_val): val(new_val){};
+	operator std::string() const
+	{
+		return std::to_string(val);
+	}
+};
+
+class MyFloat
+{
+private:
+	float val;
+public:
+	MyFloat(float new_val): val(new_val){};
+	operator std::string() const
+	{
+		return std::to_string(val);
+	}
+};
+
+void print_value(std::string value)
+{
+	std::cout << value << std::endl;
+}
+
+int main()
+{
+	print_value(MyInt(10));
+	print_value(MyFloat(13.52));
+}
+```
